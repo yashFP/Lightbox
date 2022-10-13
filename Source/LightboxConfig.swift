@@ -58,6 +58,7 @@ public class LightboxConfig {
     public static var size: CGSize?
     public static var text = NSLocalizedString("Close", comment: "")
     public static var image: UIImage?
+    public static var imageColor: UIColor = .white
 
     public static var textAttributes: [NSAttributedString.Key: Any] = [
       .font: UIFont.boldSystemFont(ofSize: 16),
@@ -75,6 +76,7 @@ public class LightboxConfig {
     public static var size: CGSize?
     public static var text = NSLocalizedString("Delete", comment: "")
     public static var image: UIImage?
+    public static var imageColor: UIColor = .white
 
     public static var textAttributes: [NSAttributedString.Key: Any] = [
       .font: UIFont.boldSystemFont(ofSize: 16),
