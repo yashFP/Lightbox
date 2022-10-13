@@ -52,10 +52,41 @@ class ViewController: UIViewController {
             LightboxImage(imageURL: URL(string: "https://c.tenor.com/kccsHXtdDn0AAAAC/alcohol-wine.gif")!)
         ]
         
+        LightboxConfig.CloseButton.image = UIImage()
+        LightboxConfig.CloseButton.text = "Download"
+        LightboxConfig.CloseButton.enabled = true
+
+        LightboxConfig.DeleteButton.image = UIImage()
+        LightboxConfig.DeleteButton.text = "Close"
+        LightboxConfig.DeleteButton.enabled = true
+
+        
         let controller = LightboxController(images: images)
         controller.dynamicBackground = true
-        
+        controller.dismissalDelegate = self
+        controller.imageDeleteDelegate = self
         present(controller, animated: true, completion: nil)
     }
 }
 
+
+extension ViewController : LightboxControllerPageDelegate, LightboxControllerDismissalDelegate,LightboxControllerTouchDelegate,LightboxControllerDeleteDelegate{
+    
+    
+    func lightboxController(_ controller: LightboxController, didMoveToPage page: Int) {
+        print(page)
+    }
+    func lightboxControllerWillDismiss(_ controller: LightboxController) {
+        print("Download Button Press")
+//        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func lightboxController(_ controller: LightboxController, didTouch image: LightboxImage, at index: Int) {
+        
+    }
+    
+    func lightboxController(_ controller: LightboxController, willDeleteAt index: Int) {
+        print("Close Button Press")
+    }
+    
+}

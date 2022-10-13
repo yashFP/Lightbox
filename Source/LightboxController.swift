@@ -443,40 +443,40 @@ extension LightboxController: PageViewDelegate {
 extension LightboxController: HeaderViewDelegate {
 
   func headerView(_ headerView: HeaderView, didPressDeleteButton deleteButton: UIButton) {
-    deleteButton.isEnabled = false
+//    deleteButton.isEnabled = false
 
     imageDeleteDelegate?.lightboxController(self, willDeleteAt: currentPage)
-      
-    guard numberOfPages != 1 else {
-      pageViews.removeAll()
-      self.headerView(headerView, didPressCloseButton: headerView.closeButton)
-      return
-    }
+//
+//    guard numberOfPages != 1 else {
+//      pageViews.removeAll()
+//      self.headerView(headerView, didPressCloseButton: headerView.closeButton)
+//      return
+//    }
+//
+//    let prevIndex = currentPage
+//
+//    if currentPage == numberOfPages - 1 {
+//      previous()
+//    } else {
+//      next()
+//      currentPage -= 1
+//    }
+//
+//    self.initialImages.remove(at: prevIndex)
+//    self.pageViews.remove(at: prevIndex).removeFromSuperview()
 
-    let prevIndex = currentPage
-
-    if currentPage == numberOfPages - 1 {
-      previous()
-    } else {
-      next()
-      currentPage -= 1
-    }
-
-    self.initialImages.remove(at: prevIndex)
-    self.pageViews.remove(at: prevIndex).removeFromSuperview()
-
-    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
-      self.configureLayout(self.view.bounds.size)
-      self.currentPage = Int(self.scrollView.contentOffset.x / self.view.bounds.width)
-      deleteButton.isEnabled = true
-    }
+//    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+//      self.configureLayout(self.view.bounds.size)
+//      self.currentPage = Int(self.scrollView.contentOffset.x / self.view.bounds.width)
+//      deleteButton.isEnabled = true
+//    }
   }
 
   func headerView(_ headerView: HeaderView, didPressCloseButton closeButton: UIButton) {
-    closeButton.isEnabled = false
-    presented = false
+//    closeButton.isEnabled = false
+//    presented = false
     dismissalDelegate?.lightboxControllerWillDismiss(self)
-    dismiss(animated: true, completion: nil)
+//    dismiss(animated: true, completion: nil)
   }
 }
 
