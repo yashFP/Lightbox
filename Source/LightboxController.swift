@@ -311,11 +311,13 @@ open class LightboxController: UIViewController {
   // MARK: - Layout
 
   open func configureLayout(_ size: CGSize) {
-    scrollView.frame.size = size
+      let frameView = CGSize(width: size.width, height: size.height - 220)
+    scrollView.frame.size = frameView
+      scrollView.frame.origin.y = 110
     scrollView.contentSize = CGSize(
-      width: size.width * CGFloat(numberOfPages) + spacing * CGFloat(numberOfPages - 1),
-      height: size.height)
-    scrollView.contentOffset = CGPoint(x: CGFloat(currentPage) * (size.width + spacing), y: 0)
+      width: frameView.width * CGFloat(numberOfPages) + spacing * CGFloat(numberOfPages - 1),
+      height: frameView.height)
+    scrollView.contentOffset = CGPoint(x: CGFloat(currentPage) * (frameView.width + spacing), y: 0)
 
     for (index, pageView) in pageViews.enumerated() {
       var frame = scrollView.bounds
@@ -474,7 +476,7 @@ extension LightboxController: HeaderViewDelegate {
 
   func headerView(_ headerView: HeaderView, didPressCloseButton closeButton: UIButton) {
 //    closeButton.isEnabled = false
-//    presented = false
+    presented = false
     dismissalDelegate?.lightboxControllerWillDismiss(self)
 //    dismiss(animated: true, completion: nil)
   }
