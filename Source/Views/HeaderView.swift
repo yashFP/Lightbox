@@ -25,7 +25,7 @@ open class HeaderView: UIView {
       for: .touchUpInside)
 
     if let image = LightboxConfig.CloseButton.image {
-        button.setBackgroundImage(image, for: UIControl.State())
+        button.setImage(image, for: UIControl.State())
         
     }
 
@@ -54,7 +54,7 @@ open class HeaderView: UIView {
       for: .touchUpInside)
 
     if let image = LightboxConfig.DeleteButton.image {
-        button.setBackgroundImage(image, for: UIControl.State())
+        button.setImage(image, for: UIControl.State())
     }
 
     button.isHidden = !LightboxConfig.DeleteButton.enabled
