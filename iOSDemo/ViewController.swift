@@ -76,8 +76,15 @@ extension ViewController : LightboxControllerPageDelegate, LightboxControllerDis
     func lightboxController(_ controller: LightboxController, didMoveToPage page: Int) {
         print(page)
     }
+    func lightboxControllerWillDismiss(_ controller: LightboxController, isFromButton: Bool) {
+        if isFromButton {
+            print("Download Button Press")
+        }else{
+            print("Swipe")
+        }
+    }
     func lightboxControllerWillDismiss(_ controller: LightboxController) {
-        print("Download Button Press")
+        
 //        controller.dismiss(animated: true, completion: nil)
     }
     
